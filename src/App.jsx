@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function FraudDashboard() {
   const [form, setForm] = useState({
@@ -19,6 +19,27 @@ export default function FraudDashboard() {
     return Number(hours) + Number(minutes) / 60;
   };
 
+
+  const fetchStats = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/fraud/stats");
+    const data = await res.json();
+
+    setCounts({
+      total: data.total,
+      fraud: data.fraud,
+      safe: data.safe,
+    });
+  } catch (error) {
+    console.log("Failed to load stats", error);
+  }
+};
+
+useEffect(() => {
+  fetchStats();
+}, []);
+
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
@@ -31,7 +52,7 @@ export default function FraudDashboard() {
   const handleSubmit = async () => {
     setLoading(true);
     setResult(null);
-
+    
     try {
       const res = await fetch("http://localhost:3000/fraud/check", {
         method: "POST",
@@ -46,12 +67,11 @@ export default function FraudDashboard() {
       });
 
       const data = await res.json();
+      if (data.success) {
+  fetchStats();
+}
 
-      setCounts((prev) => ({
-        total: prev.total + 1,
-        fraud: data.success && data.result === "FRAUD" ? prev.fraud + 1 : prev.fraud,
-        safe: data.success && data.result !== "FRAUD" ? prev.safe + 1 : prev.safe,
-      }));
+      
 
       setResult(data);
     } catch (error) {

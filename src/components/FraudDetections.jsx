@@ -133,7 +133,7 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Stats Row */}
+        
         <div className="grid grid-cols-3 gap-3">
           {[
             { label: "Checks run", value: counts.total, color: "text-gray-900" },
@@ -147,10 +147,10 @@ useEffect(() => {
           ))}
         </div>
 
-        {/* Form Card */}
+   
         <div className="bg-white border border-gray-200 rounded-2xl p-6 space-y-5">
 
-          {/* Section: Transaction Details */}
+      
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
@@ -215,7 +215,7 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Section: Transaction Flags */}
+
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-1">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
@@ -223,7 +223,7 @@ useEffect(() => {
             </p>
 
             <div className="grid grid-cols-2 gap-3">
-              {/* Online Toggle */}
+     
               <button
                 type="button"
                 onClick={() => toggleFlag("isOnline")}
@@ -240,7 +240,7 @@ useEffect(() => {
                 </div>
               </button>
 
-              {/* International Toggle */}
+           
               <button
                 type="button"
                 onClick={() => toggleFlag("isForeign")}
@@ -259,7 +259,7 @@ useEffect(() => {
             </div>
           </div>
 
-          {/* Submit Button */}
+    
           <button
             onClick={handleSubmit}
             disabled={loading}
@@ -282,7 +282,7 @@ useEffect(() => {
           </button>
         </div>
 
-        {/* Result */}
+     
         {result && (
           <div className={`rounded-2xl p-5 border ${
             !isSuccess
@@ -321,7 +321,7 @@ useEffect(() => {
                   </div>
                 </div>
 
-                {/* Confidence Bar */}
+        
                 <div>
                   <div className="flex justify-between text-sm mb-1.5">
                     <span className="text-gray-500">Model confidence</span>
@@ -335,7 +335,7 @@ useEffect(() => {
                   </div>
                 </div>
 
-                {/* Flag Chip */}
+      
                 <div className="mt-3">
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
                     result.fraud ? "bg-red-200 text-red-800" : "bg-emerald-200 text-emerald-800"

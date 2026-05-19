@@ -1,4 +1,3 @@
-
 import { Route, Routes } from 'react-router-dom'
 import FraudDashboard from './components/FraudDetections'
 import Transactions from './components/Transactions'

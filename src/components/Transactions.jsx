@@ -26,14 +26,14 @@ export default function TransactionsPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
 
-      {/* HEADER */}
+  
       <div className="flex items-center justify-between mb-6">
 
         <h1 className="text-2xl font-bold text-gray-800">
           All Transactions History
         </h1>
 
-        {/* BACK BUTTON */}
+      
         <button
           onClick={() => navigate("/")}
           className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm transition"
@@ -42,7 +42,7 @@ export default function TransactionsPage() {
         </button>
       </div>
 
-      {/* CONTENT */}
+
       {loading ? (
         <p className="text-gray-500">Loading...</p>
       ) : transactions.length === 0 ? (
@@ -55,7 +55,7 @@ export default function TransactionsPage() {
               className="bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition"
             >
 
-              {/* NAME + CNIC */}
+          
               <div className="mb-2">
                 <p className="text-gray-800 font-semibold">
                   {tx.name}
@@ -65,7 +65,7 @@ export default function TransactionsPage() {
                 </p>
               </div>
 
-              {/* AMOUNT */}
+          
               <p className="text-sm text-gray-700">
                 Amount:{" "}
                 <span className="font-medium">
@@ -73,7 +73,6 @@ export default function TransactionsPage() {
                 </span>
               </p>
 
-              {/* RESULT */}
               <p className="mt-1">
                 <b>Result:</b>{" "}
                 <span
@@ -87,7 +86,7 @@ export default function TransactionsPage() {
                 </span>
               </p>
 
-              {/* CONFIDENCE */}
+      
               <p className="text-sm text-gray-700 mt-1">
                 Confidence:{" "}
                 <span className="font-medium">
@@ -95,7 +94,7 @@ export default function TransactionsPage() {
                 </span>
               </p>
 
-              {/* DATE */}
+        
               <p className="text-xs text-gray-400 mt-2">
                 {new Date(tx.createdAt).toLocaleString()}
               </p>
